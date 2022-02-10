@@ -1,0 +1,7 @@
+name: AdvancementWorldBorder
+version: '1.0-1.18.1-patch-b18'
+main: xyz.bobkinn_.advancementworldborder.AdvancementWorldBorder
+api-version: 1.18
+authors: [ BoBkiNN_ ]
+description: WorldBorder will expand if advancement gathered
+website: https://www.spigotmc.org/resources/advancementworldborder.99909/
