@@ -1,7 +1,0 @@
-name: AdvancementWorldBoarder
-version: '1.0-1.18.1-release-b16'
-main: xyz.bobkinn_.advancementworldboarder.AdvancementWorldBoarder
-api-version: 1.18
-authors: [ BoBkiNN_ ]
-description: Worldboarder will expand if advancement gathered
-website: https://discord.gg/HCUMcbcv4m
