@@ -19,7 +19,7 @@ SoundZ: 0
 SoundVolume: 3000000
 SoundPitch: 0.5
 OnExpandMsg: "&a&lWorld was expanded by &e%displayname%!"
-#Placeholders: %displayname% - player display name, %name% - player original nickname, %border% - world boarder size
+#Placeholders: %displayname% - player display name, %name% - player original nickname
 ExpandBlocks: 10
 ExpandSeconds: 5
 debug: false
