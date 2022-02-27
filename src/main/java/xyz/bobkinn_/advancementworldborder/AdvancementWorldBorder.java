@@ -1,6 +1,12 @@
 package xyz.bobkinn_.advancementworldborder;
 
-import org.bukkit.*;
+import org.bukkit.Bukkit;
+import org.bukkit.World;
+import org.bukkit.NamespacedKey;
+import org.bukkit.Sound;
+import org.bukkit.WorldBorder;
+import org.bukkit.SoundCategory;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -59,6 +65,7 @@ public class AdvancementWorldBorder extends JavaPlugin implements Listener {
     Integer SoundVolume = getConfig().getInt("SoundVolume");
     Integer SoundPitch = getConfig().getInt("SoundPitch");
     List<String> worlds = getConfig().getStringList("EnabledWorlds");
+    List<String> DisabledAdv = getConfig().getStringList("DisabledAdv");
     boolean debugEnabled = getConfig().getBoolean("debug");
 
     Sound snd = Sound.valueOf(SoundName);
@@ -72,6 +79,9 @@ public class AdvancementWorldBorder extends JavaPlugin implements Listener {
         if (i == 2){
             Bukkit.getConsoleSender().sendMessage("§b[AWB Debug] §eAdvancement key: §c§n" + s);
         }
+        if (i == 3){
+            Bukkit.getConsoleSender().sendMessage("§b[AWB Debug] §eSkipping key: §c§n" + s);
+        }
     }
 
     @EventHandler
@@ -79,8 +89,11 @@ public class AdvancementWorldBorder extends JavaPlugin implements Listener {
         NamespacedKey key = e.getAdvancement().getKey();
         String keyString = key.toString();
         debugEnabled(2, keyString);
-        if (keyString.contains("minecraft:recipes")) {
-            return;
+        for (String dKey : DisabledAdv){
+            if (keyString.contains(dKey)){
+                debugEnabled(3, keyString);
+                return;
+            }
         }
 
         for (String worldName : worlds) {

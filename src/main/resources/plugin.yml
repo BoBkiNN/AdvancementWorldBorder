@@ -1,5 +1,5 @@
 name: AdvancementWorldBorder
-version: '1.0-1.18.1-patch-b18'
+version: '1.2-1.18.1-dev-b22'
 main: xyz.bobkinn_.advancementworldborder.AdvancementWorldBorder
 api-version: 1.18
 authors: [ BoBkiNN_ ]
