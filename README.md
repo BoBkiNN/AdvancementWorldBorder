@@ -2,11 +2,16 @@
 Minercaft plugin that will expand worldborder if advancement gathered
 # Config.yml
 ```yaml
-#by BoBkiNN_#7400
 EnabledWorlds:
   - "world_the_end"
   - "world_nether"
   - "world"
+DisabledAdv:
+  - "minecraft:story/root"
+  - "minecraft:recipes"
+  - "blazeandcave:technical"
+  - "blazeandcave:bacap/root"
+#Will disable expanding on this advancements
 DivideNether: true
 #Divide world_nether`s ExpandBlocks by 8
 ChatMsgToggle: true
