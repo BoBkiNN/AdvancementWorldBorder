@@ -71,7 +71,7 @@ public class AdvancementWorldBorder extends JavaPlugin implements Listener {
     Sound snd = Sound.valueOf(SoundName);
     String ExpandMsg = onExpandMsg.replace("&", "§");
 
-    public void debugEnabled(Integer i, String s){
+    public void debugEnabled(int i, String s){
         if (!debugEnabled){return;}
         if (DivideNether && i == 1){
             Bukkit.getConsoleSender().sendMessage("§b[AWB Debug] §eDivideNether is enabled!");
@@ -98,6 +98,7 @@ public class AdvancementWorldBorder extends JavaPlugin implements Listener {
 
         for (String worldName : worlds) {
             World world = Bukkit.getWorld(worldName);
+            if (world==null) continue;
             WorldBorder border = world.getWorldBorder();
             double borderSize = border.getSize();
             if (EnableSound) {
@@ -116,13 +117,10 @@ public class AdvancementWorldBorder extends JavaPlugin implements Listener {
         String DisplayName = player.getDisplayName();
         String pName = player.getName();
         if (ChatMsgToggle) {
-            //World MsgWorld = Bukkit.getWorld("world");
-            //WorldBorder MsgWorldBorder = MsgWorld.getWorldBorder();
-            //double MsgWorldBorderSize = MsgWorldBorder.getSize();
-            ExpandMsg = ExpandMsg.replace("%displayname%", DisplayName);
-            ExpandMsg = ExpandMsg.replace("%name%", pName);
+            String msg = ExpandMsg.replace("%displayname%", DisplayName)
+                    .replace("%name%", pName);
             //ExpandMsg = ExpandMsg.replace("%border%", "" + MsgWorldBorderSize); (unknown bug)
-            Bukkit.broadcastMessage(ExpandMsg);
+            Bukkit.broadcastMessage(msg);
         }
     }
 }
